@@ -10,6 +10,7 @@ class AppWidget extends StatelessWidget {
       title: "Imperio",
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
