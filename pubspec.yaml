@@ -82,6 +82,10 @@ flutter:
       fonts:
         - asset: assets/fonts/ArchivoNarrow-Italic-VariableFont_wght.ttf
         - asset: assets/fonts/ArchivoNarrow-VariableFont_wght.ttf
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

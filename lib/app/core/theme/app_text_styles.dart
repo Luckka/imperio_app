@@ -21,6 +21,14 @@ class AppTextStyles {
     color: AppColors.white
   );
 
+  static const titleMediumMontserrat = TextStyle(
+    
+    fontSize: 24,
+    fontFamily: AppConstants.montserratFontFamily,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white
+  );
+
   static const titleCategory = TextStyle(
     fontSize: 16,
     fontFamily: AppConstants.archivoNarrowFontFamily,

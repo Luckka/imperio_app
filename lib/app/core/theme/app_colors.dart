@@ -11,4 +11,5 @@ class AppColors {
   static const grey = Color(0XFFC0C4C2);
   static const greyButton = Color(0XFFE6E6E6);
   static const greyStrong = Color(0XFF555252);
+  static const surfaceYellow = Color.fromRGBO(196, 178, 58, 0.2);
 }
