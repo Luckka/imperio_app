@@ -13,6 +13,13 @@ class AppTextStyles {
     color: AppColors.blackText
   );
 
+  static const scoreTitle = TextStyle(
+    fontSize: 50,
+    fontFamily: AppConstants.montserratFontFamily,
+    fontWeight: FontWeight.w500,
+    color: AppColors.blackText
+  );
+
   static const titleMedium = TextStyle(
     
     fontSize: 24,

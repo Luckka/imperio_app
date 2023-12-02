@@ -31,6 +31,27 @@ class AppMock{
     Pages(title: "E-Sports", icon: Image.asset("assets/icons/controller_icon.png"), onTap: () {  }),
   ];
 
+  static final dates = [
+    DateButton(text: "Live", onTap: () {  }),
+    DateButton(text: "Hoje", onTap: () {  }),
+    DateButton(text: "01/11", onTap: () {  }),
+    DateButton(text: "02/11", onTap: () {  }),
+    DateButton(text: "03/11", onTap: () {  }),
+    DateButton(text: "04/11", onTap: () {  }),
+  ];
+
+  static final scoreBoard = [
+    ScoreBoard(team1: Image.asset("assets/images/team1_logo.png"), team2: Image.asset("assets/images/team2_logo.png"), score: "2:2" , sponsorIn: Image.asset("assets/images/sponsor1.png"), sponsorOut: Image.asset("assets/images/betsson.png"), sponsorX: Image.asset("assets/images/sponsor2.png"), titleTeam1: 'São Paulo', titleTeam2: 'Palmeiras', scoreSponsorIn: '3.2', scoreSponsorOut: '2.6', scoreSponsorX: '3.4')
+  ];
+
+  static final betAdvices = [
+    BetAdvices(cardImage: "assets/images/guy_login_small.png", title: "Apostas ao Vivo: Estratégias e Dicas para o Sucesso", content: "Explore as melhores práticas ..."),
+    BetAdvices(cardImage: "assets/images/guy_login_small.png", title: "Apostas ao Vivo: Estratégias e Dicas para o Sucesso", content: "Explore as melhores práticas ..."),
+    BetAdvices(cardImage: "assets/images/guy_login_small.png", title: "Apostas ao Vivo: Estratégias e Dicas para o Sucesso", content: "Explore as melhores práticas ..."),
+    BetAdvices(cardImage: "assets/images/guy_login_small.png", title: "Apostas ao Vivo: Estratégias e Dicas para o Sucesso", content: "Explore as melhores práticas ..."),
+    BetAdvices(cardImage: "assets/images/guy_login_small.png", title: "Apostas ao Vivo: Estratégias e Dicas para o Sucesso", content: "Explore as melhores práticas ..."),
+  ];
+
 
 }
 
@@ -63,3 +84,38 @@ class ProfileButton {
     required this.icon,
   });
 }
+
+class DateButton{
+  final String text;
+  final void Function()? onTap;
+
+  DateButton({required this.text, required this.onTap,});
+}
+
+class ScoreBoard{
+  final Widget team1;
+  final Widget team2;
+  final String score;
+  final Widget sponsorIn;
+  final Widget sponsorOut;
+  final Widget sponsorX;
+  final String titleTeam1;
+  final String titleTeam2;
+  final String scoreSponsorIn;
+  final String scoreSponsorOut;
+  final String scoreSponsorX;
+
+  ScoreBoard({required this.team1, required this.team2, required this.score, required this.sponsorIn, required this.sponsorOut, required this.sponsorX, required this.titleTeam1, required this.titleTeam2,required this.scoreSponsorIn, required this.scoreSponsorOut, required this.scoreSponsorX,});
+
+
+
+}
+
+class BetAdvices {
+  final String cardImage;
+  final String title;
+  final String content;
+
+  BetAdvices({required this.cardImage, required this.title, required this.content});
+}
+
