@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imperio/app/core/shared/app_routes.dart';
-import 'package:imperio/app/modules/login/presenter/login_page_step01.dart';
-import 'package:imperio/app/modules/login/presenter/login_page_step02.dart';
+import 'package:imperio/app/modules/login/presenter/pages/login_page_step01.dart';
+import 'package:imperio/app/modules/login/presenter/pages/login_page_step02.dart';
 
 class LoginModule extends Module {
   @override

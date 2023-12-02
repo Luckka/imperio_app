@@ -38,8 +38,13 @@ dependencies:
   flutter_modular: ^5.0.3
   dio:
   dart_either: ^1.0.0
+  flutter_mobx: ^2.2.0
+  mobx:
+  
 
 dev_dependencies:
+  build_runner:
+  mobx_codegen:
   flutter_test:
     sdk: flutter
 

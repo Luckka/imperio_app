@@ -18,18 +18,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      
       body: Container(
         height: size.height,
         width: size.width,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            colors: [
-            AppColors.surfaceYellow,
-            AppColors.white
-          ])
-        ),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                colors: [AppColors.surfaceYellow, AppColors.white])),
         child: SingleChildScrollView(
           child: SafeArea(
             child: Padding(
@@ -50,7 +45,9 @@ class HomePage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final item = AppMock.pages.elementAt(index);
                         return PagesNavigationWidget(
-                            icon: item.icon, text: item.title, onTap: item.onTap);
+                            icon: item.icon,
+                            text: item.title,
+                            onTap: item.onTap);
                       },
                     ),
                   ),
@@ -94,7 +91,7 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 48,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
@@ -103,14 +100,15 @@ class HomePage extends StatelessWidget {
                           const SizedBox(width: 8),
                       itemBuilder: (context, index) {
                         final item = AppMock.dates.elementAt(index);
-                        return DatesListWidget(text: item.text, onTap: item.onTap,);
+                        return DatesListWidget(
+                          text: item.text,
+                          onTap: item.onTap,
+                        );
                       },
                     ),
                   ),
-              
                   SizedBox(height: 8),
-              
-                   SizedBox(
+                  SizedBox(
                     height: 394,
                     child: ListView.separated(
                       itemCount: AppMock.scoreBoard.length,
@@ -118,14 +116,24 @@ class HomePage extends StatelessWidget {
                           const SizedBox(width: 8),
                       itemBuilder: (context, index) {
                         final item = AppMock.scoreBoard.elementAt(index);
-                        return ScoreBoardWidget(team1: item.team1, team2: item.team2, titleTeam1: item.titleTeam1, titleTeam2: item.titleTeam2, score: item.score, sponsorIn: item.sponsorIn, sponsorX: item.sponsorX, sponsorOut: item.sponsorOut, scoreSponsorIn: item.scoreSponsorIn, scoreSponsorOut: item.scoreSponsorOut, scoreSponsorX: item.scoreSponsorX,);
+                        return ScoreBoardWidget(
+                          team1: item.team1,
+                          team2: item.team2,
+                          titleTeam1: item.titleTeam1,
+                          titleTeam2: item.titleTeam2,
+                          score: item.score,
+                          sponsorIn: item.sponsorIn,
+                          sponsorX: item.sponsorX,
+                          sponsorOut: item.sponsorOut,
+                          scoreSponsorIn: item.scoreSponsorIn,
+                          scoreSponsorOut: item.scoreSponsorOut,
+                          scoreSponsorX: item.scoreSponsorX,
+                        );
                       },
                     ),
                   ),
-
                   SizedBox(height: 20),
-
-                   SizedBox(
+                  SizedBox(
                     height: 394,
                     child: ListView.separated(
                       itemCount: AppMock.scoreBoard.length,
@@ -133,40 +141,46 @@ class HomePage extends StatelessWidget {
                           const SizedBox(width: 8),
                       itemBuilder: (context, index) {
                         final item = AppMock.scoreBoard.elementAt(index);
-                        return ScoreBoardWidget(team1: item.team1, team2: item.team2, titleTeam1: item.titleTeam1, titleTeam2: item.titleTeam2, score: item.score, sponsorIn: item.sponsorIn, sponsorX: item.sponsorX, sponsorOut: item.sponsorOut, scoreSponsorIn: item.scoreSponsorIn, scoreSponsorOut: item.scoreSponsorOut, scoreSponsorX: item.scoreSponsorX,);
+                        return ScoreBoardWidget(
+                          team1: item.team1,
+                          team2: item.team2,
+                          titleTeam1: item.titleTeam1,
+                          titleTeam2: item.titleTeam2,
+                          score: item.score,
+                          sponsorIn: item.sponsorIn,
+                          sponsorX: item.sponsorX,
+                          sponsorOut: item.sponsorOut,
+                          scoreSponsorIn: item.scoreSponsorIn,
+                          scoreSponsorOut: item.scoreSponsorOut,
+                          scoreSponsorX: item.scoreSponsorX,
+                        );
                       },
                     ),
                   ),
-
                   SizedBox(height: 20),
-
                   Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Acompanhe todas as partidas",style: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.bold,fontFamily: AppConstants.montserratFontFamily)),
+                      Text("Acompanhe todas as partidas",
+                          style: AppTextStyles.labelMedium.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: AppConstants.montserratFontFamily)),
                       SizedBox(width: 10),
-                      Container(                        height: 47.9,
-                        width: 67,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: AppColors.yellow
-                        ),
-                        child: Image.asset("assets/icons/arrow_right.png")
-                      )
+                      Container(
+                          height: 47.9,
+                          width: 67,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              color: AppColors.yellow),
+                          child: Image.asset("assets/icons/arrow_right.png"))
                     ],
                   ),
-
                   SizedBox(height: 36),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Dicas"),
-                      Text("Ver todas")
-                    ],
+                    children: [Text("Dicas"), Text("Ver todas")],
                   ),
-
-                   SizedBox(
+                  SizedBox(
                     height: 300,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
@@ -175,66 +189,61 @@ class HomePage extends StatelessWidget {
                           const SizedBox(width: 8),
                       itemBuilder: (context, index) {
                         final item = AppMock.betAdvices.elementAt(index);
-                        return AdvicesWidget(cardImage: item.cardImage, title: item.title, content: item.content,);
+                        return AdvicesWidget(
+                          cardImage: item.cardImage,
+                          title: item.title,
+                          content: item.content,
+                        );
                       },
                     ),
                   ),
-
-                  SizedBox(height: 40,),
-
-                  Text("Principais bônus de aposta",style: AppTextStyles.titleLarge,),
-
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Text(
+                    "Principais bônus de aposta",
+                    style: AppTextStyles.titleLarge,
+                  ),
                   SizedBox(height: 10),
                   Container(
-                  
                     height: 80,
                     width: size.width * 0.8,
                     decoration: BoxDecoration(
-                      color: AppColors.surfaceYellow,
-                      borderRadius: BorderRadius.circular(24)
-                    ),
-
+                        color: AppColors.surfaceYellow,
+                        borderRadius: BorderRadius.circular(24)),
                     child: Row(
-                      children: [
-
-                      ],
+                      children: [],
                     ),
                   ),
                   SizedBox(height: 10),
-                   Container(
-                  
+                  Container(
                     height: 80,
                     width: size.width * 0.8,
                     decoration: BoxDecoration(
-                      color: AppColors.surfaceYellow,
-                      borderRadius: BorderRadius.circular(24)
-                    ),
-
+                        color: AppColors.surfaceYellow,
+                        borderRadius: BorderRadius.circular(24)),
                     child: Row(
-                      children: [
-                        
-                      ],
+                      children: [],
                     ),
                   ),
                   SizedBox(height: 20),
-                   Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Veja mais bônus disponíveis",style: AppTextStyles.labelMedium.copyWith(fontWeight: FontWeight.bold,fontFamily: AppConstants.montserratFontFamily)),
+                      Text("Veja mais bônus disponíveis",
+                          style: AppTextStyles.labelMedium.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: AppConstants.montserratFontFamily)),
                       SizedBox(width: 10),
-                      Container(                        height: 47.9,
-                        width: 67,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: AppColors.yellow
-                        ),
-                        child: Image.asset("assets/icons/arrow_right.png")
-                      )
+                      Container(
+                          height: 47.9,
+                          width: 67,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              color: AppColors.yellow),
+                          child: Image.asset("assets/icons/arrow_right.png"))
                     ],
                   ),
-
-
-                
                 ],
               ),
             ),

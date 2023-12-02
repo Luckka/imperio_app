@@ -4,14 +4,29 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imperio/app/core/shared/app_routes.dart';
 import 'package:imperio/app/core/theme/app_colors.dart';
 import 'package:imperio/app/core/theme/app_text_styles.dart';
+import 'package:imperio/app/modules/login/presenter/store/login_mobx.dart';
 import 'package:imperio/app/modules/login/presenter/widgets/bottom_widget.dart';
 import 'package:imperio/app/modules/login/presenter/widgets/botton_widget_external.dart';
 
 class LoginPageStep01 extends StatelessWidget {
   const LoginPageStep01({super.key});
 
+
+
   @override
   Widget build(BuildContext context) {
+
+    final formKey = GlobalKey<FormState>();
+
+    final loginMobx = LoginMobx();
+
+    void _validateEmail(){
+      if(formKey.currentState!.validate()){
+        loginMobx.login();
+        loginMobx.isLogin = true;
+      }
+    }
+   
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -78,4 +93,6 @@ class LoginPageStep01 extends StatelessWidget {
       ),
     );
   }
+
+   
 }
