@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imperio/app/core/shared/app_routes.dart';
@@ -16,16 +15,7 @@ class LoginPageStep01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final formKey = GlobalKey<FormState>();
-
-    final loginMobx = LoginMobx();
-
-    void _validateEmail(){
-      if(formKey.currentState!.validate()){
-        loginMobx.login();
-        loginMobx.isLogin = true;
-      }
-    }
+   
    
     return Scaffold(
       body: Padding(
@@ -80,7 +70,7 @@ class LoginPageStep01 extends StatelessWidget {
             children: [
              
               ElevatedButtonWidget( label: const Text("Email"), onPressed: () { 
-                Modular.to.navigate(AppRoutes.loginsStep02);
+                Modular.to.navigate(AppRoutes.loginStep02);
                }, width: 147,),
               SizedBox(width: 11),
               ElevatedButtonWidget( label: Text("Telefone"), onPressed: () {  }, width: 147,backgroundColor: AppColors.yellow,)

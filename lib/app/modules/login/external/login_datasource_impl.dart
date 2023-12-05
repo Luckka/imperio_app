@@ -19,6 +19,8 @@ class LoginDatasourceImpl implements LoginDatasource {
       var response =
           await dio.post("https://6569cc7dde53105b0dd7af5c.mockapi.io/login");
 
+      print(response.data);
+
       return Right(LoginMapper.fromMap(response.data));
     } catch (e, s) {
       return Left(LoginException(message: message, strackTrace: s));

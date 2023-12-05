@@ -40,6 +40,7 @@ dependencies:
   dart_either: ^1.0.0
   flutter_mobx: ^2.2.0
   mobx:
+  shared_preferences:
   
 
 dev_dependencies:
