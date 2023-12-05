@@ -1,25 +1,27 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:imperio/app/modules/home/domain/entity/betting_tips_entity.dart';
+
+import '../../../domain/usecase/betting_tips_usecase.dart';
+import '../../stores/home_mobx.dart';
 
 
 
 class AdvicesWidget extends StatelessWidget {
-  final String cardImage;
-  final String title;
-  final String content;
+ 
+  final BettingTipsEntity bettingTipsEntity;
 
   const AdvicesWidget({
     Key? key,
-    required this.cardImage,
-    required this.title,
-    required this.content,
+    required this.bettingTipsEntity,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final mediaQuery = MediaQuery.of(context);
-
+   
     return Container(
       height: 210,
       width: mediaQuery.size.width * 0.65,
@@ -31,9 +33,9 @@ class AdvicesWidget extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            flex: 8,
-            child: Image.asset(
-              cardImage,
+            flex: 5,
+            child: Image.network(
+              bettingTipsEntity.image,
               fit: BoxFit.cover,
               width: double.infinity,
             ),
@@ -46,12 +48,12 @@ class AdvicesWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    bettingTipsEntity.title,
                     style: theme.textTheme.labelMedium,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    content,
+                    bettingTipsEntity.description,
                     style: theme.textTheme.bodyMedium,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,

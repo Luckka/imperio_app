@@ -26,7 +26,11 @@ class LoginPageStep02 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.arrow_back),
+                InkWell(
+                  onTap: () {
+                    Modular.to.navigate('/');
+                  },
+                  child: Icon(Icons.arrow_back)),
                 SizedBox(height: 20),
                 Text(
                   "Qual o seu e-mail?",

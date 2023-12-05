@@ -33,6 +33,53 @@ mixin _$LoginMobx on LoginMobxBase, Store {
     return _$loginAsyncAction.run(() => super.login());
   }
 
+  late final _$LoginMobxBaseActionController =
+      ActionController(name: 'LoginMobxBase', context: context);
+
+  @override
+  dynamic setEmail(String value) {
+    final _$actionInfo = _$LoginMobxBaseActionController.startAction(
+        name: 'LoginMobxBase.setEmail');
+    try {
+      return super.setEmail(value);
+    } finally {
+      _$LoginMobxBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setPassword(String value) {
+    final _$actionInfo = _$LoginMobxBaseActionController.startAction(
+        name: 'LoginMobxBase.setPassword');
+    try {
+      return super.setPassword(value);
+    } finally {
+      _$LoginMobxBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void submitEmail() {
+    final _$actionInfo = _$LoginMobxBaseActionController.startAction(
+        name: 'LoginMobxBase.submitEmail');
+    try {
+      return super.submitEmail();
+    } finally {
+      _$LoginMobxBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void submitPassword() {
+    final _$actionInfo = _$LoginMobxBaseActionController.startAction(
+        name: 'LoginMobxBase.submitPassword');
+    try {
+      return super.submitPassword();
+    } finally {
+      _$LoginMobxBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''

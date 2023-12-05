@@ -1,22 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imperio/app/core/shared/app_constants.dart';
 import 'package:imperio/app/core/shared/widgets/scoreboard_widget.dart';
 import 'package:imperio/app/core/theme/app_colors.dart';
 import 'package:imperio/app/core/theme/app_text_styles.dart';
+import 'package:imperio/app/modules/home/domain/usecase/betting_tips_usecase.dart';
 import 'package:imperio/app/modules/home/presenter/pages/data/home_mock.dart';
 import 'package:imperio/app/modules/home/presenter/pages/widgets/action_button_popular_championship_widget.dart';
 import 'package:imperio/app/modules/home/presenter/pages/widgets/advices_widget.dart';
 import 'package:imperio/app/modules/home/presenter/pages/widgets/dates_list_widget.dart';
 import 'package:imperio/app/modules/home/presenter/pages/widgets/pages_navigation_widget.dart';
+import 'package:imperio/app/modules/home/presenter/stores/home_mobx.dart';
+import 'package:mobx/mobx.dart';
 
 import 'widgets/main_banner_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final homeMobx = HomeMobx(usecase: Modular.get<BettingTipsUsecase>());
+
+  @override
+  void initState() {
+    super.initState();
+   
+    homeMobx.getTips();
+  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+   
     return Scaffold(
       body: Container(
         height: size.height,
@@ -34,7 +54,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   Center(child: Image.asset("assets/images/logo_imperio.png")),
                   SizedBox(height: 10),
-                  SizedBox(
+                  Container(
                     height: 100,
                     width: 373,
                     child: ListView.separated(
@@ -178,24 +198,31 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 36),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Dicas"), Text("Ver todas")],
+                    children: [
+                      Text(
+                        "Dicas",
+                        style: AppTextStyles.titleAppBar,
+                      ),
+                      Text(
+                        "Ver todas",
+                        style: AppTextStyles.titleAppBar,
+                      )
+                    ],
                   ),
+                  SizedBox(height: 16),
                   SizedBox(
                     height: 300,
                     child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: AppMock.betAdvices.length,
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(width: 8),
-                      itemBuilder: (context, index) {
-                        final item = AppMock.betAdvices.elementAt(index);
-                        return AdvicesWidget(
-                          cardImage: item.cardImage,
-                          title: item.title,
-                          content: item.content,
-                        );
-                      },
-                    ),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: homeMobx.tips.length,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: 8),
+                    itemBuilder: (context, index) {
+                      return AdvicesWidget(
+                        bettingTipsEntity: homeMobx.tips[index],
+                      );
+                    },
+                      ),
                   ),
                   SizedBox(
                     height: 40,

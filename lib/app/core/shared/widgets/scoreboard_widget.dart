@@ -34,8 +34,15 @@ class ScoreBoardWidget extends StatelessWidget {
     return Container(
       height: 394,
       decoration: BoxDecoration(
+        boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Color.fromARGB(15, 0, 0, 0),
+                blurRadius: 15.0,
+                offset: Offset(0.0, 0.75)
+            )
+          ],
           borderRadius: BorderRadius.circular(36),
-          border: Border.all(color: AppColors.greyButton)),
+          border: Border.all(color: AppColors.grey)),
       child: Column(
         children: [
           SizedBox(height: 25),
