@@ -14,11 +14,8 @@ class LoginPageStep02 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loginMobx = LoginMobx(loginUsecase: Modular.get<LoginUsecase>());
 
-    
-     final loginMobx = LoginMobx(loginUsecase: Modular.get<LoginUsecase>());
-
-    
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -31,29 +28,38 @@ class LoginPageStep02 extends StatelessWidget {
               children: [
                 Icon(Icons.arrow_back),
                 SizedBox(height: 20),
-                Text("Qual o seu e-mail?",style: AppTextStyles.titleMediumMontserrat.copyWith(color: AppColors.blackText,fontWeight: FontWeight.bold,),),
+                Text(
+                  "Qual o seu e-mail?",
+                  style: AppTextStyles.titleMediumMontserrat.copyWith(
+                    color: AppColors.blackText,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 SizedBox(height: 20),
                 TextFormField(
-                  validator: (value){
+                  validator: (value) {
                     if (value!.isEmpty ||
-                      !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(value)) {
-                    return 'Preencha um Email válido';
-                  }
-                  return null;
+                        !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(value)) {
+                      return 'Preencha um Email válido';
+                    }
+                    return null;
                   },
                   onChanged: loginMobx.setEmail,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15)
-                    )
-                  ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15))),
                 ),
-                 SizedBox(height: 15),
-                Center(child:ElevatedButtonWidget(label: Text("Continuar"), onPressed: () async{
-                  loginMobx.submitEmail();
-               
-                }, width: 269,backgroundColor: AppColors.yellow,))
+                SizedBox(height: 15),
+                Center(
+                    child: ElevatedButtonWidget(
+                  label: Text("Continuar"),
+                  onPressed: () async {
+                    loginMobx.submitEmail();
+                  },
+                  width: 269,
+                  backgroundColor: AppColors.yellow,
+                ))
               ],
             ),
           ),
